@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getComments(post): void {
-    this.router.navigate([`comment/${post.id}`]);
+  getComments(comment): void {
+    this.router.navigate([  `posts/comment/${comment.id}`], {state: {comment}});
   }
 }

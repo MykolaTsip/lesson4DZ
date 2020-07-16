@@ -1,0 +1,8 @@
+<p >
+  ID: {{post.id}}, USER-ID {{post.userId}}, TITLE {{post.title}},
+  BODY: {{post.body}};
+</p>
+<hr>
+<p *ngFor="let c of comments">
+  ID: {{c.id}}, POST-ID: {{c.postId}}, NAME: {{c.name}}, EMAIL: {{c.email}}, BODY: {{c.body}}
+</p>

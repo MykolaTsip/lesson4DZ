@@ -1,5 +1,9 @@
-<p *ngFor="let u of users">
- ID: {{u.id}}, NAME {{u.name}}, USERNAME {{u.username}}, EMAIL: {{u.email}}, CITY: {{u.address.city}}, STREET: {{u.address.street}};
+<p >
+ ID: {{users.id}}, NAME {{users.name}}, USERNAME {{users.username}},
+  EMAIL: {{users.email}}, CITY: {{users.address.city}}, STREET: {{users.address.street}};
 </p>
-
+<hr>
+<p *ngFor="let p of posts">
+  ID: {{p.id}}, USER-ID: {{p.userId}}, TITLE: {{p.title}}, BODY: {{p.body}};
+</p>
 

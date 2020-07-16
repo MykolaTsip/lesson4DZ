@@ -9,6 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {QueryAllInfoService} from './services/query-all-info.service';
 import { UserOfPostsComponent } from './components/user-of-posts/user-of-posts.component';
+import {AnyoneQueryService} from './services/anyone-query.service';
+import { PostOfCommentsComponent } from './components/post-of-comments/post-of-comments.component';
+import {LeavePageService} from './services/leave-page.service';
 
 @NgModule({
   declarations: [
@@ -16,28 +19,38 @@ import { UserOfPostsComponent } from './components/user-of-posts/user-of-posts.c
     UserComponent,
     PostComponent,
     CommentComponent,
-    UserOfPostsComponent
+    UserOfPostsComponent,
+    PostOfCommentsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'users', component: UserComponent
-        // children ...
+        path: 'users', component: UserComponent,
+         children: [
+           {
+             path: 'post/:id', component: UserOfPostsComponent
+           }
+         ],
+        canActivate: [LeavePageService]
       },
       {
-        path: 'post/:id', component: UserOfPostsComponent
+        path: 'posts', component: PostComponent,
+        children: [
+          {
+            path: 'comment/:id', component: PostOfCommentsComponent
+          }
+        ],
+        canActivate: [LeavePageService]
       },
       {
-        path: 'posts', component: PostComponent
-      },
-      {
-        path: 'comments', component: CommentComponent
+        path: 'comments', component: CommentComponent,
+        canActivate: [LeavePageService]
       }
     ])
   ],
-  providers: [QueryAllInfoService],
+  providers: [QueryAllInfoService, AnyoneQueryService, LeavePageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

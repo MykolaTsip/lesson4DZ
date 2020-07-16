@@ -20,6 +20,6 @@ export class UserComponent implements OnInit {
   }
 
   postfInfo(user): void {
-     this.router.navigate([`post/${user.id}`], {state: {user}});
+     this.router.navigate([ `users`, `post`, user.id], {state: {user}});
   }
 }
