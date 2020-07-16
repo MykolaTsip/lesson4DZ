@@ -1,0 +1,11 @@
+<p *ngFor="let u of users">
+  ID: {{u.id}} NAME: {{u.name}} USERNAME: {{u.username}};
+  <button (click)="postfInfo(u)">
+    Show all post of user
+  </button>
+</p>
+
+<hr>
+<hr>
+
+<router-outlet></router-outlet>

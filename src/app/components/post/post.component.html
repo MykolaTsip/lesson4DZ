@@ -1,0 +1,5 @@
+<p *ngFor="let p of posts">
+  USER-ID: {{p.userId}}. ID: {{p.id}}. TITLE: {{p.title}}. BODY: {{p.body}};
+  <br>
+  <button (click)="getComments(p)"> Show comments of post</button>
+</p>
